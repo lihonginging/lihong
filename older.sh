@@ -1,5 +1,9 @@
 #!/bin/bash
 
+touch -t 202103081800 foo
+touch -t 202103081801 goo
+touch -t 202103081802 hoo
+
 files=`pwd`
 if [ ! -n "$1" ];then
 	echo "Warning! No arguments, return the oldest filename of current directory"
