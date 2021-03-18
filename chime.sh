@@ -4,7 +4,7 @@
 min=$(date "+%M")
 echo "min:" $min
 
-if (( $min >=30 ));
+if (( $min >=40 ));
 then 
 	echo -e '\a'
 	sleep 1s
