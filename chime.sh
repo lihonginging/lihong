@@ -14,5 +14,5 @@ elif (( $min>=20 && $min<40));
 then 
 	echo -e '\a'
 else
-	echo "fini"
+	echo "no chime"
 fi
