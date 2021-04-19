@@ -1,0 +1,34 @@
+# BUSA8090 Assignment 1 – Task 3
+# Student: Lihong
+# StudentID: 46121919
+
+# Q1
+# (a)
+curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/expression.tab -o expression.tab
+
+
+# (b)
+curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/annotation.tab -o annotation.tab
+
+# (c) Linux shell
+#save as join_cmd.sql
+select a.gene,function_1,metabolism, expr_value
+from annotation a 
+join expression e 
+where a.gene = e.gene;
+
+# (d)
+mysql> select subq.metabolism from (select count(metabolism) as count, metabolism from annotation group by metabolism) as subq where subq.count>1;
+
+#Q2
+# (a)
+mysql> select LastName,FirstName,MemberID from Member where Coach is NULL;
+
+# (b)
+mysql> select FirstName,LastName,MemberID from Member where year(JoinDate)=2013;
+
+# (c)
+mysql> select distinct FirstName,LastName,m.MemberID from Member as m join Entry as e on e.MemberID = m.MemberID where Year!=2013;
+
+# (d)
+mysql> select FirstName,LastName,MemberID from Member m where not exists (select * from Entry e where not exists (select * from Entry y where y.MemberID=m.MemberID and e.Year=y.Year));
